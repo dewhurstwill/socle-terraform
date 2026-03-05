@@ -1,0 +1,45 @@
+# .github/workflows/socle-apply.yml
+# This workflow is dispatched by Socle when a run is approved for apply.
+name: Socle Apply
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Socle run ID"
+        required: true
+      tf_path:
+        description: "Terraform config path"
+        required: true
+        default: "."
+      tf_version:
+        description: "Terraform version"
+        required: false
+        default: "latest"
+      tool:
+        description: "IaC tool: opentofu or terraform"
+        required: false
+        default: "opentofu"
+      api_url:
+        description: "Socle API base URL"
+        required: false
+        default: "https://api.socle.sh"
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: socle-labs/action@v1
+        with:
+          api-url: ${{ inputs.api_url }}
+          api-key: ${{ secrets.SOCLE_API_KEY }}
+          run-id: ${{ inputs.run_id }}
+          command: apply
+          tf-path: ${{ inputs.tf_path }}
+          tf-version: ${{ inputs.tf_version }}
+          tool: ${{ inputs.tool }}
