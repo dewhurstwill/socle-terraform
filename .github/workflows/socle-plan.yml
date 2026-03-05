@@ -23,7 +23,7 @@ on:
       api_url:
         description: "Socle API base URL"
         required: false
-        default: "https://api.socle.sh"
+        default: "https://apollo-indiana-favors-concerned.trycloudflare.com"
 
 permissions:
   contents: read
