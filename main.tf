@@ -8,7 +8,15 @@ terraform {
     username       = "socle"
     password       = "socle_fd5390af041f8bc3ae2a824c09f9c1332db5e6f3be6ba4cfaa979cd2e9f90392"
   }
+  required_providers {
+    random = {
+      source = "hashicorp/random"
+      version = "3.8.1"
+    }
+  }
 }
+
+provider "random" {}
 
 variable "hello" {
   type = string
@@ -21,4 +29,10 @@ output "hw" {
 
 output "hy" {
   value = "${var.hello} You"
+}
+
+resource "random_uuid" "test" {}
+
+output "random" {
+  value = random_uuid.test.result
 }
