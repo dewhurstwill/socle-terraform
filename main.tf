@@ -1,8 +1,8 @@
 terraform {
   backend "http" {
-    address        = "http://localhost:3000/api/v1/state/51bebc1c-c425-4c4f-a7a8-06da11de6047"
-    lock_address   = "http://localhost:3000/api/v1/state/51bebc1c-c425-4c4f-a7a8-06da11de6047/lock"
-    unlock_address = "http://localhost:3000/api/v1/state/51bebc1c-c425-4c4f-a7a8-06da11de6047/lock"
+    address        = "https://loose-ghosts-kneel.loca.lt/api/v1/state/dfca6d0a-e7f2-4257-924f-2e77dc9b74ae"
+    lock_address   = "https://loose-ghosts-kneel.loca.lt/api/v1/state/dfca6d0a-e7f2-4257-924f-2e77dc9b74ae/lock"
+    unlock_address = "https://loose-ghosts-kneel.loca.lt/api/v1/state/dfca6d0a-e7f2-4257-924f-2e77dc9b74ae/lock"
     lock_method    = "POST"
     unlock_method  = "DELETE"
     username       = "socle"
