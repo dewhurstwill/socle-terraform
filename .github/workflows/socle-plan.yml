@@ -23,7 +23,11 @@ on:
       api_url:
         description: "Socle API base URL"
         required: false
-        default: "https://apollo-indiana-favors-concerned.trycloudflare.com"
+        default: "https://api.socle.sh"
+      destroy:
+        description: "Run in destroy mode"
+        required: false
+        default: "false"
 
 permissions:
   contents: read
@@ -43,3 +47,4 @@ jobs:
           tf-path: ${{ inputs.tf_path }}
           tf-version: ${{ inputs.tf_version }}
           tool: ${{ inputs.tool }}
+          destroy: ${{ inputs.destroy }}
